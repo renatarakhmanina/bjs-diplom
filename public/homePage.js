@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 //const { response } = require("express");
 
@@ -9,7 +9,7 @@ logoutButton.action = () => {
     if (response.success) {
       location.reload();
     }
-  })
+  });
 }
 
 //Получение информации о пользователе
@@ -51,7 +51,6 @@ moneyManager.addMoneyCallback = function (data) {
 //Конвертирование валюты
 moneyManager.conversionMoneyCallback = function (data) {
   ApiConnector.convertMoney(data, response => {
-    console.log(response);
     if (response.success) {
       ProfileWidget.showProfile(response.data);
       this.setMessage(response.success, 'Успешно!');
@@ -64,7 +63,6 @@ moneyManager.conversionMoneyCallback = function (data) {
 //Перевод валюты
 moneyManager.sendMoneyCallback = function (data) {
   ApiConnector.transferMoney(data, response => {
-    console.log(response);
     if (response.success) {
       ProfileWidget.showProfile(response.data);
       this.setMessage(response.success, 'Перевод выполнен!');
@@ -105,7 +103,6 @@ favoritesWidget.addUserCallback = function (data) {
 //Удаление пользователя из избранного
 favoritesWidget.removeUserCallback = function (data) {
   ApiConnector.removeUserFromFavorites(data, response => {
-    console.log(response);
     if (response.success) {
       this.clearTable();
       this.fillTable(response.data);
