@@ -1,6 +1,6 @@
 'use strict';
 
-const { response } = require("express");
+//const { response } = require("express");
 
 const userForm = new UserForm();
 userForm.loginFormCallback = data => {
@@ -8,7 +8,7 @@ userForm.loginFormCallback = data => {
     if (response.success) {
       location.reload();
     } else {
-      setLoginErrorMessage('Ошибка. Пользователь не наден.');
+      this.setLoginErrorMessage('Ошибка. Пользователь не наден.');
     }
   });
 }
@@ -18,7 +18,7 @@ userForm.registerFormCallback = data => {
     if (response.success) {
       location.reload();
     } else {
-      setRegisterErrorMessage('Ошибка. Введите другие данные для регистрации.');
+      this.setRegisterErrorMessage('Ошибка. Введите другие данные для регистрации.');
     }
   });
 }
